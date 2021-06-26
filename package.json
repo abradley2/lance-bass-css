@@ -9,64 +9,37 @@
     "basscss"
   ],
   "scripts": {
-    "test": "jest --coverage && eslint ."
+    "lint": "standard --fix && ts-standard --fix",
+    "build": "node build-css.js && parcel build docs/index.html && cp docs/css-data.json dist/css-data.json",
+    "dev": "parcel serve docs/index.html",
+    "serve": "cp dist/index.html dist/404.html && http-server dist/"
   },
   "author": "Tony Bradley <antbradley91@gmail.com>",
   "license": "MIT",
   "repository": "abradley2/postcss-lance-bass",
   "engines": {
-    "node": ">=10.0.0"
-  },
-  "peerDependencies": {
-    "postcss": "^8.2.8"
-  },
-  "devDependencies": {
-    "clean-publish": "^2.1.0",
-    "eslint": "^7.21.0",
-    "eslint-plugin-jest": "^24.2.1",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.5.4",
-    "postcss": "^8.2.8",
-    "simple-git-hooks": "^2.0.2"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "lint-staged": {
-    "*.js": "eslint --fix"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2017
-    },
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:jest/recommended"
-    ],
-    "rules": {
-      "jest/expect-expect": "off"
-    }
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coverageThreshold": {
-      "global": {
-        "statements": 100
-      }
-    }
+    "node": ">=14.0.0"
   },
   "dependencies": {
+    "@cycle/dom": "^22.8.0",
+    "@cycle/http": "^15.4.0",
+    "@cycle/run": "^5.5.0",
     "autoprefixer": "^10.2.6",
     "cssstats": "^4.0.2",
+    "http-server": "^0.12.3",
+    "parcel": "^2.0.0-beta.2",
+    "postcss": "^8.3.5",
     "postcss-calc": "^8.0.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-custom-properties": "^11.0.0",
     "postcss-discard-comments": "^5.0.1",
     "postcss-import": "^14.0.2",
-    "postcss-reporter": "^7.0.2"
+    "postcss-reporter": "^7.0.2",
+    "snabbdom-pragma": "^2.8.0",
+    "standard": "^16.0.3",
+    "ts-node": "^10.0.0",
+    "ts-standard": "^10.0.0",
+    "typescript": "^4.3.4",
+    "xstream": "^11.14.0"
   }
 }

@@ -1,45 +1,12 @@
-# PostCSS Lance Bass
+## Lance Basscss
 
-[PostCSS] plugin to create BassCss extensions.
+[Basscss](https://github.com/basscss/basscss) is an excellent toolkit for build
 
-[PostCSS]: https://github.com/postcss/postcss
+However, it is often best extended and tweaked rather than used as-is. This project allows you
 
-```css
-.foo {
-    /* Input example */
-}
-```
-
-```css
-.foo {
-  /* Output example */
-}
-```
 
 ## Usage
 
-**Step 1:** Install plugin:
-
-```sh
-npm install --save-dev postcss postcss-lance-bass
-```
-
-**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`
-in the project root, `"postcss"` section in `package.json`
-or `postcss` in bundle config.
-
-If you do not use PostCSS, add it according to [official docs]
-and set this plugin in settings.
-
-**Step 3:** Add the plugin to plugins list:
-
-```diff
-module.exports = {
-  plugins: [
-+   require('postcss-lance-bass'),
-    require('autoprefixer')
-  ]
-}
-```
-
-[official docs]: https://github.com/postcss/postcss#usage
+1. Fork this repository, clone it, `rm -rf ./.git && git init`
+2. (If you don't have `pnpm`) `npm install -g pnpm`
+3. `pnpm install && pnpm run build && pnpm run serve`
