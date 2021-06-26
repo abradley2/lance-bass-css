@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "lint": "standard --fix && ts-standard --fix",
-    "build": "rm -rf dist/ node build-css.js && parcel build docs/index.html && cp docs/css-data.json dist/css-data.json",
+    "build": "rm -rf dist/ && node build-css.js && parcel build docs/index.html && cp docs/css-data.json dist/css-data.json",
     "dev": "parcel serve docs/index.html",
     "serve": "cp dist/index.html dist/404.html && http-server dist/"
   },
