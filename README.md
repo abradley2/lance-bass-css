@@ -1,8 +1,6 @@
 ## Lance Basscss
 
-[Basscss](https://github.com/basscss/basscss) is an excellent toolkit for build
-
-However, it is often best extended and tweaked rather than used as-is. This project allows you
+Based on [Basscss](https://github.com/basscss/basscss)
 
 
 ## Usage
