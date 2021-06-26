@@ -54,9 +54,30 @@ function main (sources: Sources): {
                     </span>
                     <div className='col-8 md-col-6'>
                       {pairs.map(function ([className, value]) {
+                        const siblings = selectors[className]
+                        const otherSiblings = siblings.length > 1
+                          ? siblings.filter(([sibPropertyName]) => sibPropertyName.indexOf('--') !== 0)
+                            .filter(function ([sibPropertyName, sibValue]) {
+                              return sibPropertyName !== propertyName || sibValue !== value
+                            })
+                          : []
+
                         return (
                           <div key={className} className='mb1'>
-                            <span className='bold pr1'>{className}</span><i>{value}</i>
+                            <span className='bold pr1' data-id={className}>{className}</span><i>{value}</i>
+                            {(otherSiblings.length > 0)
+                              ? (
+                                <div className='pl2 h5 mb2 mt1'>
+                                  {otherSiblings.map(function ([sibPropertyName, sibValue]) {
+                                    return (
+                                      <div key={sibPropertyName}>
+                                        <span className='pr1' data-id={className}>{sibPropertyName}:</span><i>{sibValue}</i>
+                                      </div>
+                                    )
+                                  })}
+                                </div>
+                              )
+                              : null}
                           </div>
                         )
                       })}
